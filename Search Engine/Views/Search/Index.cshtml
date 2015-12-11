@@ -1,0 +1,49 @@
+﻿@model List<Search_Engine.Models.Product>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="main">
+    <div class="title"><span class="blue">醬</span><span class="red">瓜</span></div>
+    <form action="/Search" method="post">
+        <center>
+            <div class="submit-form">
+                <input type="text" name="searchstring" class="form-control" value="" />
+                <button type="submit" class="btn btn-default" value="">搜尋</button>
+            </div>
+        </center>
+    </form>
+</div>
+@if (Model != null)
+{
+    <div class="row">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        商品名稱
+                    </th>
+                    <th>
+                        描述
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td>@p.Id</td>
+                        <td>@p.Name</td>
+                        <td>@p.Description</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+}
+
+
